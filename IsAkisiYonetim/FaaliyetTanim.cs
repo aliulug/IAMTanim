@@ -4,14 +4,20 @@ using System.Linq;
 namespace IAMYonetim2.IsAkisiYonetim
 {
 	public enum FaaliyetTanimTip { Kullanici, Basit }
-	
+
 	public class FaaliyetTanim : IFaaliyetTanim
-	{	
+	{
 		private readonly List<IFaaliyetTanim> _iliskiliFaaliyetler = new List<IFaaliyetTanim>();
 		private readonly List<IFaaliyetTanimDegisken> _degiskenTanimlar = new List<IFaaliyetTanimDegisken>();
 		private readonly List<IFaaliyetTanimSorumlu> _sorumlular = new List<IFaaliyetTanimSorumlu>();
 
 		public string Ad;
+		public string Aciklama;
+		public FaaliyetTanimTip Tip;
+		public bool Baslatan;
+		public bool Bitiren;
+		public string BitirmeKosulu;
+		public string FaaliyetBitirmeKosulu;
 
 		public bool IliskiEkle(IFaaliyetTanim kime)
 		{
@@ -47,7 +53,7 @@ namespace IAMYonetim2.IsAkisiYonetim
 
 		public bool DegiskenTanimSil(IFaaliyetTanimDegisken degisken)
 		{
-			if (!DegiskenIceriyor(degisken)) 
+			if (!DegiskenIceriyor(degisken))
 				return false;
 			_degiskenTanimlar.Remove(degisken);
 			return true;
