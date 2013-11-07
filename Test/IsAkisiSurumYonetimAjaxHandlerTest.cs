@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
 
 namespace IAMYonetim2.Test
@@ -19,14 +14,9 @@ namespace IAMYonetim2.Test
 		private string _stringDeger2;
 		private string _stringDeger3;
 		private string _stringDeger4;
-		private string _stringDeger5;
-		private string _stringDeger6;
-		private string _stringDeger7;
 		private bool _trueDeger;
 		private bool _falseDeger;
-		private int _intDeger1;
 		private string _kullaniciEnumStr;
-		private string _boolEnumStr;
 
 		[SetUp]
 		public void TestOncesi()
@@ -41,13 +31,8 @@ namespace IAMYonetim2.Test
 			_falseDeger = false;
 			_stringDeger3 = "asdfasd fasdf";
 			_stringDeger4 = "qwer asdf asdf";
-			_stringDeger5 = "as dfasdf asdf";
-			_stringDeger6 = "afqwerasdfas dfasdf";
-			_stringDeger7 = "qfasd fasdf asdf";
-			_intDeger1 = 10;
 
 			_kullaniciEnumStr = "Kullanici";
-			_boolEnumStr = "Bool";
 		}
 
 		[Test]

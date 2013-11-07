@@ -61,7 +61,7 @@
     <Compile Include="Test\FaaliyetTanimTest.cs" />
     <Compile Include="Test\IsAkisiSurumTest.cs" />
     <Compile Include="Test\IsAkisiSurumYoneticisiTest.cs" />
-    <Compile Include="Test\IsAkisiSurumYonetimAjaxHandler.cs" />
+    <Compile Include="Test\IsAkisiSurumYonetimAjaxHandlerTest.cs" />
     <Compile Include="Test\IsAkisiTanimNesneFabrikaTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
