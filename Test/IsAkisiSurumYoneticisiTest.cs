@@ -1,10 +1,10 @@
-﻿using System.Data;
-// ReSharper disable InconsistentNaming
+﻿using IAMYonetim2.IsAkisiYonetim;
 using NMock2;
 using NUnit.Framework;
 using Is = NUnit.Framework.Is;
+// ReSharper disable InconsistentNaming
 
-namespace ClassLibrary2.Test
+namespace IAMYonetim2.Test
 {
 	[TestFixture]
 	public class IsAkisiSurumYoneticisiTest

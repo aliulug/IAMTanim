@@ -1,6 +1,6 @@
-﻿using ClassLibrary2.Test;
+﻿using IAMYonetim2.Test;
 
-namespace ClassLibrary2
+namespace IAMYonetim2.IsAkisiYonetim
 {
 	public class IsAkisiSurumYoneticisi : IIsAkisiSurumYoneticisi
 	{

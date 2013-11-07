@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary2
+﻿namespace IAMYonetim2
 {
 	public interface IIsAkisiSurum
 	{
