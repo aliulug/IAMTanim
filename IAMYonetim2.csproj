@@ -55,14 +55,25 @@
     <Compile Include="IIsAkisiSurumYoneticisi.cs" />
     <Compile Include="IIsAkisiTanimDegisken.cs" />
     <Compile Include="IsAkisiYonetim\FaaliyetTanim.cs" />
+    <Compile Include="IsAkisiYonetim\FaaliyetTanimDegisken.cs" />
+    <Compile Include="IsAkisiYonetim\FaaliyetTanimDegiskenYaratIstekSonuc.cs" />
+    <Compile Include="IsAkisiYonetim\FaaliyetTanimSorumlu.cs" />
+    <Compile Include="IsAkisiYonetim\FaaliyetTanimSorumluYaratIstekSonuc.cs" />
+    <Compile Include="IsAkisiYonetim\FaaliyetTanimYaratIstekSonuc.cs" />
     <Compile Include="IsAkisiYonetim\IsAkisiSurum.cs" />
     <Compile Include="IsAkisiYonetim\IsAkisiSurumYoneticisi.cs" />
+    <Compile Include="IsAkisiYonetim\IsAkisiTanimDegisken.cs" />
+    <Compile Include="IsAkisiYonetim\IsAkisiTanimDegiskenYaratIstekSonuc.cs" />
+    <Compile Include="IsAkisiYonetim\IsAkisiTanimNesneFabrika.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\FaaliyetTanimTest.cs" />
+    <Compile Include="IIsAkisiTanimNesneFabrika.cs" />
     <Compile Include="Test\IsAkisiSurumTest.cs" />
     <Compile Include="Test\IsAkisiSurumYoneticisiTest.cs" />
+    <Compile Include="IsAkisiYonetim\IsAkisiSurumYonetimAjaxHandler.cs" />
     <Compile Include="Test\IsAkisiSurumYonetimAjaxHandlerTest.cs" />
     <Compile Include="Test\IsAkisiTanimNesneFabrikaTest.cs" />
+    <Compile Include="IsAkisiYonetim\IstekSonuc.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
