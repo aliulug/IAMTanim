@@ -56,6 +56,7 @@
     <Compile Include="IIsAkisiTanimDegisken.cs" />
     <Compile Include="IsAkisiYonetim\IsAkisiSurumYoneticisi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\IsAkisiSurumTest.cs" />
     <Compile Include="Test\IsAkisiSurumYoneticisiTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
