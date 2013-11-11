@@ -1,5 +1,4 @@
 ﻿using System;
-using IAMYonetim2.Test;
 
 namespace IAMYonetim2.IsAkisiYonetim
 {

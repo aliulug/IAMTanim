@@ -11,37 +11,40 @@ namespace IAMYonetim2.IsAkisiYonetim
 			_isAkisiSurum = isAkisiSurum;
 		}
 
-		public bool YeniFaaliyetTanimEkle(IFaaliyetTanim faaliyetTanim)
+		public bool FaaliyetTanimEkle(IFaaliyetTanim faaliyetTanim)
 		{
 			if (_isAkisiSurum.FaaliyetTanimIceriyor(faaliyetTanim)) return false;
-			_isAkisiSurum.YeniFaaliyetTanimEkle(faaliyetTanim);
+			_isAkisiSurum.FaaliyetTanimEkle(faaliyetTanim);
 			return true;
 		}
 
-		public bool YeniFaaliyetTanimIliskisiEkle(IFaaliyetTanim kimden, IFaaliyetTanim kime)
+		//TODO: TEST YENİDEN YAZ, KOŞUL PARAMETRESİ EKLEDİM
+		public bool FaaliyetTanimIliskiEkle(IFaaliyetTanim kimden, IFaaliyetTanim kime, string kosul)
 		{
 			if (!_isAkisiSurum.FaaliyetTanimIceriyor(kimden) || !_isAkisiSurum.FaaliyetTanimIceriyor(kime)) return false;
 			kimden.IliskiEkle(kime);
 			return true;
 		}
 
-		public bool YeniFaaliyetTanimDegiskeniEkle(IFaaliyetTanim faaliyetTanim, IFaaliyetTanimDegisken faaliyetTanimDegisken)
+		public bool FaaliyetTanimDegiskeniEkle(IFaaliyetTanim faaliyetTanim, IFaaliyetTanimDegisken faaliyetTanimDegisken)
 		{
 			if (!_isAkisiSurum.FaaliyetTanimIceriyor(faaliyetTanim)) return false;
 			faaliyetTanim.DegiskenTanimEkle(faaliyetTanimDegisken);
 			return true;
 		}
 
-		public bool YeniFaaliyetTanimSorumlusuEkle(IFaaliyetTanim faaliyetTanim, IFaaliyetTanimSorumlu faaliyetTanimSorumlu)
+		//TODO: test yeniden yaz, koşul parametresi ekledim
+		public bool FaaliyetTanimSorumluEkle(IFaaliyetTanim faaliyetTanim, IFaaliyetTanimSorumlu faaliyetTanimSorumlu, string kosul)
 		{
 			if (!_isAkisiSurum.FaaliyetTanimIceriyor(faaliyetTanim)) return false;
 			faaliyetTanim.SorumluEkle(faaliyetTanimSorumlu);
 			return true;
 		}
 
-		public void DegiskenTanimEkle(IIsAkisiTanimDegisken isAkisiTanimDegisken)
+		//todo revize
+		public bool IsAkisiDegiskenEkle(IIsAkisiTanimDegisken isAkisiTanimDegisken)
 		{
-			_isAkisiSurum.DegiskenTanimEkle(isAkisiTanimDegisken);
+			return _isAkisiSurum.DegiskenTanimEkle(isAkisiTanimDegisken);
 		}
 
 		public bool FaaliyetTanimSil(IFaaliyetTanim faaliyetTanim)
@@ -51,7 +54,7 @@ namespace IAMYonetim2.IsAkisiYonetim
 			return true;
 		}
 
-		public bool FaaliyetTanimIliskisiSil(IFaaliyetTanim kimden, IFaaliyetTanim kime)
+		public bool FaaliyetTanimIliskiSil(IFaaliyetTanim kimden, IFaaliyetTanim kime)
 		{
 			if (!_isAkisiSurum.FaaliyetTanimIceriyor(kimden)) return false;
 			if (!kimden.IliskiIceriyor(kime)) return false;
@@ -82,7 +85,19 @@ namespace IAMYonetim2.IsAkisiYonetim
 
 		public IFaaliyetTanim FaaliyetTanimAl(string faaliyetTanimAd)
 		{
-			return null;
+			return _isAkisiSurum.FaaliyetTanimAl(faaliyetTanimAd);
+		}
+
+		//todo
+		public IIsAkisiTanimDegisken IsAkisiDegiskenAl(string degiskenAd)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		//todo
+		public bool IsAkisiDegiskenSil(IIsAkisiTanimDegisken degisken)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

@@ -8,7 +8,7 @@ namespace IAMYonetim2.IsAkisiYonetim
         private readonly List<IFaaliyetTanim> _faaliyetTanimlar = new List<IFaaliyetTanim>();
 		private readonly List<IIsAkisiTanimDegisken> _degiskenTanimlar = new List<IIsAkisiTanimDegisken>();
         
-        public bool YeniFaaliyetTanimEkle(IFaaliyetTanim faaliyetTanim)
+        public bool FaaliyetTanimEkle(IFaaliyetTanim faaliyetTanim)
         {
 	        if (FaaliyetTanimIceriyor(faaliyetTanim)) return false;
 			_faaliyetTanimlar.Add(faaliyetTanim);
@@ -27,11 +27,22 @@ namespace IAMYonetim2.IsAkisiYonetim
 			return true;
 		}
 
+		//todo: yeni yazıldı, testini yazarak implement et
+		public bool DegiskenTanimAl(string degiskenAd)
+		{
+			throw new System.NotImplementedException();
+		}
+
 		public bool FaaliyetTanimSil(IFaaliyetTanim faaliyetTanim)
 		{
 			if (!FaaliyetTanimIceriyor(faaliyetTanim)) return false;
 			_faaliyetTanimlar.Remove(faaliyetTanim);
 			return true;
+		}
+
+		public IFaaliyetTanim FaaliyetTanimAl(string faaliyetTanimAd)
+		{
+			return null;
 		}
 
 		public int FaaliyetTanimAdediAl()

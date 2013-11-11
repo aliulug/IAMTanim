@@ -51,6 +51,12 @@ namespace IAMYonetim2.IsAkisiYonetim
 			return Enumerable.Contains(_degiskenTanimlar, degisken);
 		}
 
+		//TODO: yeni eklendi test yaz
+		public IFaaliyetTanimDegisken DegiskenAl(string degiskenAdi)
+		{
+			return null;
+		}
+
 		public bool DegiskenTanimSil(IFaaliyetTanimDegisken degisken)
 		{
 			if (!DegiskenIceriyor(degisken))
@@ -76,6 +82,24 @@ namespace IAMYonetim2.IsAkisiYonetim
 		public bool SorumluIceriyor(IFaaliyetTanimSorumlu faaliyetTanimSorumlu)
 		{
 			return Enumerable.Contains(_sorumlular, faaliyetTanimSorumlu);
+		}
+
+		//todo: yeni eklendi, testleri ile birlikte yaz
+		public IFaaliyetTanimSorumlu SorumluKullaniciAl(int sorumluKullaniciId)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		//todo: yeni eklendi, testleri ile birlikte yaz
+		public IFaaliyetTanimSorumlu SorumluRolAl(int sorumluKullaniciId)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		//todo: yeni eklendi, testleri ile birlikte yaz
+		public IFaaliyetTanimSorumlu SorumluOzelAl(int sorumluKullaniciId)
+		{
+			throw new System.NotImplementedException();
 		}
 
 		public int IliskiliFaaliyetAdediAl()

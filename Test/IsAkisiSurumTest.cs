@@ -32,14 +32,14 @@ namespace IAMYonetim2.Test
 		[Test]
         public void BosBirIASIcine_YeniBirFTEklendiginde_IASFTAdedi1Olsun()
         {
-			_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim1);
 			Assert.That(_isAkisiSurum.FaaliyetTanimAdediAl(), Is.EqualTo(1));
         }
 
 		[Test]
 		public void BirFTIcerenIASIcinde_MevcutFTIcinFaaliyetTanimIceriyormuCagirildiginda_TrueDonmeli()
 		{
-			_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim1);
 			Assert.That(_isAkisiSurum.FaaliyetTanimIceriyor(_faaliyetTanim1), Is.True);
 		}
 
@@ -52,15 +52,15 @@ namespace IAMYonetim2.Test
 		[Test]
 		public void BirFTIcerenIASIcinde_MevcutOlmayanBirFTIcinFaaliyetTanimIceriyormuCagirildiginda_FalseDonmeli()
 		{
-			_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim1);
 			Assert.That(_isAkisiSurum.FaaliyetTanimIceriyor(_faaliyetTanim2), Is.False);
 		}
 
 		[Test]
 		public void BirFTIcerenIASIcine_AyniFTEklenmekIstendiginde_FalseDonmeliVeToplamFaaliyetAdedi1Olmali()
 		{
-			_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim1);
-			Assert.That(_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim1), Is.False);
+			_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim1);
+			Assert.That(_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim1), Is.False);
 			Assert.That(_isAkisiSurum.FaaliyetTanimAdediAl(), Is.EqualTo(1));
 		}
 
@@ -94,7 +94,7 @@ namespace IAMYonetim2.Test
 		[Test]
 		public void BirFTIcerenIASIcinde_MevcutFTIcinFaaliyetTanimSilCagirildiginda_TrueDonmeliVeFTAdedi0Olmali()
 		{
-			_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim1);
 			Assert.That(_isAkisiSurum.FaaliyetTanimSil(_faaliyetTanim1), Is.True);
 			Assert.That(_isAkisiSurum.FaaliyetTanimAdediAl(), Is.EqualTo(0));
 		}
@@ -102,8 +102,8 @@ namespace IAMYonetim2.Test
 		[Test]
 		public void IkiFTIcerenIASIcinde_MevcutFTIcinFaaliyetTanimSilCagirildiginda_TrueDonmeliVeFTAdedi1Olmali()
 		{
-			_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim1);
-			_isAkisiSurum.YeniFaaliyetTanimEkle(_faaliyetTanim2);
+			_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurum.FaaliyetTanimEkle(_faaliyetTanim2);
 			Assert.That(_isAkisiSurum.FaaliyetTanimSil(_faaliyetTanim1), Is.True);
 			Assert.That(_isAkisiSurum.FaaliyetTanimAdediAl(), Is.EqualTo(1));
 		}

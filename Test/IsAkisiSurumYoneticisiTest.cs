@@ -1,8 +1,8 @@
-﻿using IAMYonetim2.IsAkisiYonetim;
+﻿// ReSharper disable InconsistentNaming
+using IAMYonetim2.IsAkisiYonetim;
 using NMock2;
 using NUnit.Framework;
 using Is = NUnit.Framework.Is;
-// ReSharper disable InconsistentNaming
 
 namespace IAMYonetim2.Test
 {
@@ -34,9 +34,9 @@ namespace IAMYonetim2.Test
 		[Test]
 		public void YeniBirIASIcine_YeniBirFTEklendiginde_YeniFaaliyetEkleCagirilmali()
 		{
-			Expect.Once.On(_isAkisiSurum1).Method("YeniFaaliyetTanimEkle").With(_faaliyetTanim1).Will(Return.Value(true));
+			Expect.Once.On(_isAkisiSurum1).Method("FaaliyetTanimEkle").With(_faaliyetTanim1).Will(Return.Value(true));
 			Stub.On(_isAkisiSurum1).Method("FaaliyetTanimIceriyor").WithAnyArguments().Will(Return.Value(false));
-			_isAkisiSurumYoneticisi.YeniFaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurumYoneticisi.FaaliyetTanimEkle(_faaliyetTanim1);
 		}
 
 		[Test]
@@ -44,35 +44,37 @@ namespace IAMYonetim2.Test
 		{
 			Stub.On(_isAkisiSurum1).Method("FaaliyetTanimIceriyor").With(_faaliyetTanim1).Will(Return.Value(true));
 			Expect.Never.On(_isAkisiSurum1);
-			_isAkisiSurumYoneticisi.YeniFaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurumYoneticisi.FaaliyetTanimEkle(_faaliyetTanim1);
 		}
 
 		[Test]
 		public void BirFTIcerenBirIASIcine_YeniBirFTEklendiginde_YeniFaaliyetEkleCagirilmali()
 		{
-			Expect.Once.On(_isAkisiSurum1).Method("YeniFaaliyetTanimEkle").With(_faaliyetTanim1).Will(Return.Value(true));
+			Expect.Once.On(_isAkisiSurum1).Method("FaaliyetTanimEkle").With(_faaliyetTanim1).Will(Return.Value(true));
 			Stub.On(_isAkisiSurum1).Method("FaaliyetTanimIceriyor").WithAnyArguments().Will(Return.Value(false));
-			_isAkisiSurumYoneticisi.YeniFaaliyetTanimEkle(_faaliyetTanim1);
+			_isAkisiSurumYoneticisi.FaaliyetTanimEkle(_faaliyetTanim1);
 			Stub.On(_isAkisiSurum1).Method("FaaliyetTanimIceriyor").WithAnyArguments().Will(Return.Value(false));
-			Expect.Once.On(_isAkisiSurum1).Method("YeniFaaliyetTanimEkle").With(_faaliyetTanim2).Will(Return.Value(true));
-			_isAkisiSurumYoneticisi.YeniFaaliyetTanimEkle(_faaliyetTanim2);
+			Expect.Once.On(_isAkisiSurum1).Method("FaaliyetTanimEkle").With(_faaliyetTanim2).Will(Return.Value(true));
+			_isAkisiSurumYoneticisi.FaaliyetTanimEkle(_faaliyetTanim2);
 		}
 
+		//TODO: REVİZE ET KOŞUL EKLENDİ, FAALİYET TANIM İLİŞKİ EKLE METODUNA DA BAK
 		[Test]
 		public void IkiFTIcerenBirIASIcine_YeniBirFTIEklendiginde_FTYeniIliskiEkleCagirilmali()
 		{
 			Expect.Once.On(_faaliyetTanim1).Method("IliskiEkle").With(_faaliyetTanim2).Will(Return.Value(true));
 			Stub.On(_isAkisiSurum1).Method("FaaliyetTanimIceriyor").WithAnyArguments().Will(Return.Value(true));
-			_isAkisiSurumYoneticisi.YeniFaaliyetTanimIliskisiEkle(_faaliyetTanim1, _faaliyetTanim2);
+			_isAkisiSurumYoneticisi.FaaliyetTanimIliskiEkle(_faaliyetTanim1, _faaliyetTanim2, "");
 		}
-
+		
+		//TODO: REVİZE ET KOŞUL EKLENDİ, FAALİYET TANIM İLİŞKİ EKLE METODUNA DA BAK
 		[Test]
 		public void YeniBirIASIcine_YeniBirFTIEklendiginde_HicBirSeyCagirilmamaliVeFalseDonmeli()
 		{
 			yeniBirIASIcinStubAyarla();
 			Expect.Never.On(_faaliyetTanim1);
 			Expect.Never.On(_faaliyetTanim2);
-			Assert.That(_isAkisiSurumYoneticisi.YeniFaaliyetTanimIliskisiEkle(_faaliyetTanim1, _faaliyetTanim2), Is.False);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimIliskiEkle(_faaliyetTanim1, _faaliyetTanim2, ""), Is.False);
 		}
 
 		[Test]
@@ -80,7 +82,7 @@ namespace IAMYonetim2.Test
 		{
 			yeniBirIASIcinStubAyarla();
 			Expect.Never.On(_faaliyetTanim1);
-			Assert.That(_isAkisiSurumYoneticisi.YeniFaaliyetTanimDegiskeniEkle(_faaliyetTanim1, _faaliyetTanimDegisken1), Is.False);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimDegiskeniEkle(_faaliyetTanim1, _faaliyetTanimDegisken1), Is.False);
 		}
 
 		[Test]
@@ -88,15 +90,16 @@ namespace IAMYonetim2.Test
 		{
 			birFTIcerenIASIcinStubAyarla();
 			Expect.Once.On(_faaliyetTanim1).Method("DegiskenTanimEkle").With(_faaliyetTanimDegisken1).Will(Return.Value(true));
-			Assert.That(_isAkisiSurumYoneticisi.YeniFaaliyetTanimDegiskeniEkle(_faaliyetTanim1, _faaliyetTanimDegisken1), Is.True);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimDegiskeniEkle(_faaliyetTanim1, _faaliyetTanimDegisken1), Is.True);
 		}
 
+		//TODO: REVİZE ET KOŞUL EKLENDİ
 		[Test]
 		public void YeniBirIASIcine_FTSOlarakBirRolEklendiginde_HicBirSeyCagirilmamaliVeFalseDonmeli()
 		{
 			yeniBirIASIcinStubAyarla();
 			Expect.Never.On(_faaliyetTanim1);
-			Assert.That(_isAkisiSurumYoneticisi.YeniFaaliyetTanimSorumlusuEkle(_faaliyetTanim1, _faaliyetTanimSorumlu1), Is.False);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimSorumluEkle(_faaliyetTanim1, _faaliyetTanimSorumlu1, ""), Is.False);
 		}
 
 		[Test]
@@ -104,14 +107,14 @@ namespace IAMYonetim2.Test
 		{
 			birFTIcerenIASIcinStubAyarla();
 			Expect.Once.On(_faaliyetTanim1).Method("SorumluEkle").With(_faaliyetTanimSorumlu1).Will(Return.Value(true));
-			Assert.That(_isAkisiSurumYoneticisi.YeniFaaliyetTanimSorumlusuEkle(_faaliyetTanim1, _faaliyetTanimSorumlu1), Is.True);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimSorumluEkle(_faaliyetTanim1, _faaliyetTanimSorumlu1, ""), Is.True);
 		}
 
 		[Test]
 		public void YeniBirIASIcine_BirIADEklendiginde_DegiskenEkleCagirilmali()
 		{
 			Expect.Once.On(_isAkisiSurum1).Method("DegiskenTanimEkle").With(_isAkisiTanimDegisken1).Will(Return.Value(true));
-			_isAkisiSurumYoneticisi.DegiskenTanimEkle(_isAkisiTanimDegisken1);
+			_isAkisiSurumYoneticisi.IsAkisiDegiskenEkle(_isAkisiTanimDegisken1);
 		}
 
 		[Test]
@@ -136,7 +139,7 @@ namespace IAMYonetim2.Test
 			yeniBirIASIcinStubAyarla();
 			Expect.Never.On(_isAkisiSurum1);
 			Expect.Never.On(_faaliyetTanim1);
-			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimIliskisiSil(_faaliyetTanim1, _faaliyetTanim2), Is.False);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimIliskiSil(_faaliyetTanim1, _faaliyetTanim2), Is.False);
 		}
 
 		[Test]
@@ -145,7 +148,7 @@ namespace IAMYonetim2.Test
 			birFTVeSifirIliskiIcerenIASIcinStubAyarla();
 			Expect.Never.On(_isAkisiSurum1);
 			Expect.Never.On(_faaliyetTanim1);
-			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimIliskisiSil(_faaliyetTanim1, _faaliyetTanim2), Is.False);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimIliskiSil(_faaliyetTanim1, _faaliyetTanim2), Is.False);
 		}
 
 		[Test]
@@ -153,7 +156,7 @@ namespace IAMYonetim2.Test
 		{
 			birFTVeBirIliskiIcerenIASIcinStubAyarla();
 			Expect.Once.On(_faaliyetTanim1).Method("IliskiSil").With(_faaliyetTanim1).Will(Return.Value(false));
-			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimIliskisiSil(_faaliyetTanim1, _faaliyetTanim1), Is.True);
+			Assert.That(_isAkisiSurumYoneticisi.FaaliyetTanimIliskiSil(_faaliyetTanim1, _faaliyetTanim1), Is.True);
 		}
 
 		[Test]
@@ -202,6 +205,14 @@ namespace IAMYonetim2.Test
 			var isAkisiSurumKaydeden = _mockery.NewMock<IIsAkisiSurumKaydeden>();
 			Expect.Once.On(isAkisiSurumKaydeden).Method("Kaydet").With(_isAkisiSurum1).Will(Return.Value(true));
 			_isAkisiSurumYoneticisi.Kaydet(isAkisiSurumKaydeden);
+		}
+
+		[Test]
+		public void HerhangiBirIASIcinde_MevcutBirFTIcinFaaliyetTanimAlCagirildiginda_FTDonmeli()
+		{	
+			Stub.On(_isAkisiSurum1).Method("FaaliyetTanimAl").With("mevcut faaliyet").Will(Return.Value(_faaliyetTanim1));
+			var faaliyetTanim = _isAkisiSurumYoneticisi.FaaliyetTanimAl("mevcut faaliyet");
+			Assert.That(faaliyetTanim, Is.Not.Null);
 		}
 
 		private void sifirSorumlusuOlanBirFTOlanIASIcinStubAyarla()
