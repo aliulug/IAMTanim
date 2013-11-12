@@ -75,12 +75,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\FaaliyetTanimTest.cs" />
     <Compile Include="IIsAkisiTanimNesneFabrika.cs" />
+    <Compile Include="Test\IIsAkisiYonetimVeriAdaptoru.cs" />
+    <Compile Include="Test\IsAkisi.cs" />
     <Compile Include="Test\IsAkisiSurumTest.cs" />
     <Compile Include="Test\IsAkisiSurumYoneticisiTest.cs" />
     <Compile Include="IsAkisiYonetim\IsAkisiSurumYonetimAjaxHandler.cs" />
     <Compile Include="Test\IsAkisiSurumYonetimAjaxHandlerTest.cs" />
     <Compile Include="Test\IsAkisiTanimNesneFabrikaTest.cs" />
     <Compile Include="IsAkisiYonetim\IstekSonuc.cs" />
+    <Compile Include="Test\IsAkisiYoneticisi.cs" />
     <Compile Include="Test\IsAkisiYonetimAjaxHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
