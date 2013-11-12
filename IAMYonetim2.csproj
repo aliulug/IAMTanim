@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdaVeriKatmani">
+      <HintPath>..\__OutputDLL\AdaVeriKatmani.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NMock2">
       <HintPath>..\__GerekliDLL\NMock2.dll</HintPath>
     </Reference>
@@ -41,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +72,7 @@
     <Compile Include="IsAkisiYonetim\IsAkisiTanimDegisken.cs" />
     <Compile Include="IsAkisiYonetim\IsAkisiTanimDegiskenYaratIstekSonuc.cs" />
     <Compile Include="IsAkisiYonetim\IsAkisiTanimNesneFabrika.cs" />
+    <Compile Include="IsAkisiYonetim\VeriAdaptoruFabrikasi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\FaaliyetTanimTest.cs" />
     <Compile Include="IIsAkisiTanimNesneFabrika.cs" />
@@ -74,6 +82,10 @@
     <Compile Include="Test\IsAkisiSurumYonetimAjaxHandlerTest.cs" />
     <Compile Include="Test\IsAkisiTanimNesneFabrikaTest.cs" />
     <Compile Include="IsAkisiYonetim\IstekSonuc.cs" />
+    <Compile Include="Test\IsAkisiYonetimAjaxHandlerTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
