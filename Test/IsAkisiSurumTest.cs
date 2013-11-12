@@ -16,7 +16,7 @@ namespace IAMYonetim2.Test
 		[SetUp]
 		public void TestOncesi()
 		{
-			_isAkisiSurum = new IsAkisiSurum();
+			_isAkisiSurum = new IsAkisiSurum("v1");
 			_faaliyetTanim1 = Substitute.For<IFaaliyetTanim>();
 			_faaliyetTanim2 = Substitute.For<IFaaliyetTanim>();
 			_isAkisiTanimDegisken1 = Substitute.For<IIsAkisiTanimDegisken>();

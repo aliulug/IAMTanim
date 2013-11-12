@@ -1,11 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace IAMYonetim2.IsAkisiYonetim
 {
 	public class IsAkisiSurum : IIsAkisiSurum
 	{
-        private readonly List<IFaaliyetTanim> _faaliyetTanimlar = new List<IFaaliyetTanim>();
+		public readonly string Surum;
+		public string Aciklama;
+		public DateTime OlusturmaTarihi;
+		public DateTime UygulamaTarihi;
+		public DateTime IptalTarihi;
+
+		public IsAkisiSurum(string surum)
+		{
+			Surum = surum;
+		}
+		
+		private readonly List<IFaaliyetTanim> _faaliyetTanimlar = new List<IFaaliyetTanim>();
 		private readonly List<IIsAkisiTanimDegisken> _degiskenTanimlar = new List<IIsAkisiTanimDegisken>();
         
         public bool FaaliyetTanimEkle(IFaaliyetTanim faaliyetTanim)
@@ -53,6 +65,23 @@ namespace IAMYonetim2.IsAkisiYonetim
 		public int DegiskenAdediAl()
 		{
 			return _degiskenTanimlar.Count;
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj)) return false;
+			if (ReferenceEquals(this, obj)) return true;
+			return obj.GetType() == GetType() && Equals((IsAkisiSurum)obj);
+		}
+
+		protected bool Equals(IsAkisiSurum other)
+		{
+			return string.Equals(Surum, other.Surum);
+		}
+
+		public override int GetHashCode()
+		{
+			return (Surum != null ? Surum.GetHashCode() : 0);
 		}
 	}
 }

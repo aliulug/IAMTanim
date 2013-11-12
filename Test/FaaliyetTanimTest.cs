@@ -1,7 +1,7 @@
-﻿using IAMYonetim2.IsAkisiYonetim;
+﻿// ReSharper disable InconsistentNaming
+using IAMYonetim2.IsAkisiYonetim;
 using NSubstitute;
 using NUnit.Framework;
-// ReSharper disable InconsistentNaming
 
 namespace IAMYonetim2.Test
 {
@@ -198,8 +198,8 @@ namespace IAMYonetim2.Test
 		[Test]
 		public void ElimizdeAyniAdliIkiFTVarsa_EqualsMetoduCagirildiginda_TrueDonmeli()
 		{
-			FaaliyetTanim tanim1 = new FaaliyetTanim() {Ad = "tanım adı"};
-			FaaliyetTanim tanim2 = new FaaliyetTanim() { Ad = "tanım adı" };
+			FaaliyetTanim tanim1 = new FaaliyetTanim {Ad = "tanım adı"};
+			FaaliyetTanim tanim2 = new FaaliyetTanim { Ad = "tanım adı" };
 			Assert.That(tanim1.Equals(tanim2));
 			Assert.That(tanim2.Equals(tanim1));
 		}
